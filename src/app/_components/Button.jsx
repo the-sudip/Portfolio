@@ -22,7 +22,7 @@ const Button = ({
     <div>
       <button
         onClick={onClick}
-        className={`${sizeClasses[size]} ${typeClasses[type]} flex justify-center gap-2 px-[10px] py-[5px] rounded-full text-[12px] cursor-pointer`}
+        className={`${sizeClasses[size]} ${typeClasses[type]} flex justify-center gap-2 px-[10px] py-[10px] rounded-full text-[12px] cursor-pointer`}
       >
         {icon && <span className="text-[15px]">{icon}</span>}
         {children}
