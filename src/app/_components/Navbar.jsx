@@ -3,7 +3,14 @@ import Button from "./Button";
 import { Lexend } from "next/font/google";
 import { MdOutlineFileDownload } from "react-icons/md";
 
-
+const lexend = Lexend(
+      {
+        subsets: ["latin"],
+        weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+        style: ["normal"],
+        display: "swap",
+      }
+    )
 const Navbar = () => {
     const downloadHandler = () => {
         const link = document.createElement("a");
@@ -13,14 +20,7 @@ const Navbar = () => {
         link.click();
         document.body.removeChild(link);
     }
-    const lexend = Lexend(
-      {
-        substes: ["latin"],
-        weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-        style: ["normal"],
-        display: "swap",
-      }
-    )
+    
   return (
     <div className="flex justify-between bg-white py-1">
       <div className="iconAndTag flex gap-1 ">
@@ -58,10 +58,10 @@ const Navbar = () => {
         >
           Contact Me
         </a>
-        
-        <Button size="small" type="filled" icon={<MdOutlineFileDownload />} onClick={downloadHandler}>
+        <div className="font-normal"><Button type="filled" icon={<MdOutlineFileDownload />} onClick={downloadHandler}>
           Resume
-        </Button>
+        </Button></div>
+        
       
       </div>
       
