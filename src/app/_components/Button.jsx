@@ -1,7 +1,6 @@
 import React from "react";
 
 const Button = ({
-  size = "medium",
   type = "filled",
   icon,
   onClick = () => {
@@ -9,11 +8,7 @@ const Button = ({
   },
   children,
 }) => {
-  const sizeClasses = {
-    medium: "w-[150px]",
-    large: "w-[200px]",
-    small: "w-[100px]",
-  };
+ 
   const typeClasses = {
     filled: "bg-black text-white",
     border: "border-2 border-black text-black",
@@ -22,9 +17,9 @@ const Button = ({
     <div>
       <button
         onClick={onClick}
-        className={`${sizeClasses[size]} ${typeClasses[type]} flex justify-center gap-2 px-[10px] py-[5px] rounded-full text-[12px] cursor-pointer`}
+        className={`${typeClasses[type]} flex justify-center gap-1 px-[30px] py-[15px] rounded-full text-[12px] cursor-pointer`}
       >
-        {icon && <span className="text-[15px]">{icon}</span>}
+        {icon && <span className="text-[15px] mt-[1px]">{icon}</span>}
         {children}
       </button>
     </div>
