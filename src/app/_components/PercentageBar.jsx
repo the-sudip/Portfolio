@@ -7,7 +7,7 @@ const PercentageBar = ({ name, percentage }) => {
   const len = maxLen * (value / 100);
   return (
     <div className="flex gap-2 items-center">
-      <div className="text-black">{name}</div>
+      <div className="text-black w-[100px]">{name}</div>
       <div className={`w-[250px] h-1 rounded-full bg-gray-300 relative overflow-hidden`}>
         <div
           className={`rounded-full top-0 left-0 bg-black h-full`}
