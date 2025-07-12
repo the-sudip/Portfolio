@@ -13,7 +13,7 @@ const Skills = () => {
     ]
   return (
     <div id='skills' className='flex flex-col gap-2.5 justify-center items-center my-5'>
-        <h2 className='text-5xl font-bold text-gray-800 mb-10'>Skills</h2>
+        <h2 className=' text-[35px] sm:text-5xl font-bold text-gray-800 mb-10'>Skills</h2>
       {Skills.map((skill) => (
         <div id={skill.id}><PercentageBar name={skill.name} percentage={skill.percentage} /></div>
       ))}
