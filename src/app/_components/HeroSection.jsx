@@ -23,9 +23,10 @@ const HeroSection = () => {
           profileInView ? "opacity-100" : "opacity-20"
         }`}
       >
-        <div className="text-[80px] font-medium text-gray-800">
+        {/* <div className="text-[80px] font-medium text-gray-800">
           <CgProfile />
-        </div>
+        </div> */}
+        <div className="w-[100px] h-[100px] rounded-full overflow-hidden"><img src="/sudip.jpg"></img></div>
         <p className="text-gray-800 font-medium">Hi, I'm Sudip Das</p>
       </div>
       <p
