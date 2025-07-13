@@ -3,12 +3,11 @@ import Image from "next/image";
 import Button from "./_components/Button";
 import Navbar from "./_components/Navbar";
 import HeroSection from "./_components/HeroSection";
-import PercentageBar from "./_components/PercentageBar";
-import Skills from "./_components/Skills";
+import PercentageBar from "./_components/skills/PercentageBar";
+import Skills from "./_components/skills/Skills";
 
 export default function Home() {
   return (
-    
     <div className="bg-white">
       <Navbar />
       <HeroSection />
