@@ -22,19 +22,45 @@ const Navbar = () => {
   };
   const leftRef = useRef(null);
   const rightRef = useRef(null);
+  const menuRef = useRef(null);
   const [burgerVisibility, setBurgerVisibility] = useState(false);
   const [windowWidth, setWindowWidth] = useState(1000);
   const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
+    // const handleClickOutside = (event) => {
+    //   if(menuRef.current && !menuRef.current.contains(event.target)){
+    //     setOpenMenu(false);
+    //   }
+    // }
+    // if(openMenu){
+    //   document.addEventListener("mousedown", handleClickOutside);
+    // }
     const resizeHandler = () => {
       setWindowWidth(Math.floor(window.innerWidth));
     };
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
+      // document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+    
+  }, [])
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if(menuRef.current && !menuRef.current.contains(event.target)){
+        setOpenMenu(false);
+      }
+    }
+    if(openMenu){
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [openMenu])
 
   useEffect(() => {
     const width = windowWidth;
@@ -95,14 +121,16 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={`${
-          burgerVisibility ? "flex" : "hidden"
-        } text-black mt-3`}
+        className={`${burgerVisibility ? "flex" : "hidden"} text-black mt-3`}
         onClick={() => setOpenMenu(true)}
       >
         <GiHamburgerMenu />
       </div>
-      {openMenu && <Menu navigators={navigators} setOpenMenu={setOpenMenu} />}
+      {openMenu && (
+        <div ref={menuRef}>
+          <Menu navigators={navigators} setOpenMenu={setOpenMenu} />
+        </div>
+      )}
     </div>
   );
 };
