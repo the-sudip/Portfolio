@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 const PercentageBar = ({ name, percentage }) => {
-  console.log("Percentage called");
+  // console.log("Percentage called");
   // const value = Number(percentage);
   percentage = Math.floor(percentage)
   const maxLen = 250;
@@ -14,7 +14,6 @@ const PercentageBar = ({ name, percentage }) => {
   const [value, setValue] = useState(0);
   useEffect(() => {
     if (inView) {
-      console.log("in view");
       setWidth(percentage);
       const interval = (1000)/20;
       const increment = Math.floor((percentage) / interval);
