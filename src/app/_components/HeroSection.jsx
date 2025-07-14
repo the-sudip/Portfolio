@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { useInView } from "react-intersection-observer";
+import { SiGithub } from "react-icons/si";
+import Button from "./Button";
 
 const HeroSection = () => {
   const viewProperties = {
@@ -28,6 +30,7 @@ const HeroSection = () => {
         </div> */}
         <div className="w-[100px] h-[100px] rounded-full overflow-hidden"><img src="/sudip.jpg"></img></div>
         <p className="text-gray-800 font-medium">Hi, I'm Sudip Das</p>
+        <a href="https://github.com/the-sudip" target="blank"><Button type="filled" icon={<SiGithub/>}>Github</Button></a>
       </div>
       <p
         ref={mainTextRef}
