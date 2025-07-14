@@ -2,7 +2,7 @@ import React from "react";
 
 const Menu = ({ navigators, setOpenMenu }) => {
   return (
-    <div className="absolute flex flex-col gap-3 top-0 right-0 bg-gray-50 rounded-[10px] py-3 shadow-sm shadow-gray-200">
+    <div className="absolute flex flex-col gap-3 top-0 right-0 bg-gray-50 rounded-[10px] py-3 shadow-sm shadow-gray-200 z-50">
       {navigators.map((navigator) => (
         <a
           key={navigator.id}
