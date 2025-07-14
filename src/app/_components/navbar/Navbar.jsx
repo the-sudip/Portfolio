@@ -1,9 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import Button from "./Button";
+import Button from "../Button";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Menu from "./Menu";
 
 const Navbar = () => {
+  const navigators = [
+    {id: 1, label: "Skills", href:"#skills"},
+    {id: 2, label: "Projects", href: "#projects"},
+    {id: 3, label: "Experience", href: "#experience"},
+    {id: 4, label: "Education", href: "#education"},
+    {id: 5, label: "Contact Me", href: "#contactMe"}
+  ]
   const downloadHandler = () => {
     const link = document.createElement("a");
     link.href = "/resume.pdf";
@@ -16,6 +24,7 @@ const Navbar = () => {
   const rightRef = useRef(null);
   const [burgerVisibility, setBurgerVisibility] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -41,10 +50,7 @@ const Navbar = () => {
         <h2 className="font-bold text-xl text-black mt-1">Sudip Das</h2>
       </div>
 
-      <div
-        ref={rightRef}
-        className="hidden md:flex gap-10 "
-      >
+      <div ref={rightRef} className="hidden md:flex gap-10 ">
         <div
           className={`navigators ${
             burgerVisibility ? "hidden" : "flex"
@@ -89,9 +95,11 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={`${burgerVisibility ? "flex" : "hidden"} text-black mt-3`}
+        className={`${burgerVisibility ? "flex" : "hidden"} text-black border-2 border-black mt-3`}
+        onClick={() => (setOpenMenu(true))}
       >
         <GiHamburgerMenu />
+        {openMenu && <Menu navigators={navigators} setOpenMenu={setOpenMenu} />}
       </div>
     </div>
   );
