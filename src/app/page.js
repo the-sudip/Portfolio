@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Button from "./_components/Button";
-import Navbar from "./_components/Navbar";
+import Navbar from "./_components/navbar/Navbar";
 import HeroSection from "./_components/HeroSection";
 import PercentageBar from "./_components/skills/PercentageBar";
 import Skills from "./_components/skills/Skills";
