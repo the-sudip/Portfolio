@@ -30,7 +30,7 @@ const HeroSection = () => {
         </div> */}
         <div className="w-[100px] h-[100px] rounded-full overflow-hidden"><img src="/sudip.jpg"></img></div>
         <p className="text-gray-800 font-medium">Hi, I'm Sudip Das</p>
-        <a href="https://github.com/the-sudip" target="blank"><Button type="filled" icon={<SiGithub/>}>Github</Button></a>
+        <a href="https://github.com/the-sudip" target="blank"><Button type="filled" height="small" icon={<SiGithub/>}>Github</Button></a>
       </div>
       <p
         ref={mainTextRef}
