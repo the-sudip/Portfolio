@@ -15,7 +15,7 @@ const Navbar = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const [burgerVisibility, setBurgerVisibility] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(Math.floor(window.innerWidth));
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     const resizeHandler = () => {
