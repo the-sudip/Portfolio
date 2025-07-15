@@ -26,47 +26,45 @@ const Navbar = () => {
   const [burgerVisibility, setBurgerVisibility] = useState(false);
   const [windowWidth, setWindowWidth] = useState(1000);
   const [openMenu, setOpenMenu] = useState(false);
+  const [navigatorVisibility, setNavigatorVisibility] = useState(true);
 
   useEffect(() => {
-    // const handleClickOutside = (event) => {
-    //   if(menuRef.current && !menuRef.current.contains(event.target)){
-    //     setOpenMenu(false);
-    //   }
-    // }
-    // if(openMenu){
-    //   document.addEventListener("mousedown", handleClickOutside);
-    // }
     const resizeHandler = () => {
       setWindowWidth(Math.floor(window.innerWidth));
     };
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
-      // document.removeEventListener("mousedown", handleClickOutside);
     };
-    
-  }, [])
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if(menuRef.current && !menuRef.current.contains(event.target)){
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
         setOpenMenu(false);
       }
+    };
+    if (openMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
     }
-    if(openMenu){
-      document.addEventListener("mousedown", handleClickOutside)
-    }
+    if(openMenu) setBurgerVisibility(false)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [openMenu])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openMenu]);
 
   useEffect(() => {
     const width = windowWidth;
     console.log(width);
-    if (width < 900) setBurgerVisibility(true);
-    else setBurgerVisibility(false);
+    if (width < 900) {
+      if(!openMenu)setBurgerVisibility(true);
+      setNavigatorVisibility(false);
+    } else {
+      setBurgerVisibility(false);
+      setNavigatorVisibility(true);
+      setOpenMenu(false);
+    }
   }, [windowWidth]);
 
   return (
@@ -79,7 +77,7 @@ const Navbar = () => {
       <div ref={rightRef} className="hidden md:flex gap-10 ">
         <div
           className={`navigators ${
-            burgerVisibility ? "hidden" : "flex"
+            navigatorVisibility ? "flex" : "hidden"
           } gap-5 lg:gap-10 transtition-[gap] duration-200 ease-in-out text-[#323232] text-[15px] font-semibold mt-3`}
         >
           <a href="#skills" className=" hover:text-black hover:cursor-pointer ">
@@ -110,7 +108,7 @@ const Navbar = () => {
             Contact Me
           </a>
         </div>
-        <div className={`${burgerVisibility ? "hidden" : "flex"}`}>
+        <div className={`${navigatorVisibility ? "flex" : "hidden"}`}>
           <Button
             type="filled"
             icon={<MdOutlineFileDownload />}
