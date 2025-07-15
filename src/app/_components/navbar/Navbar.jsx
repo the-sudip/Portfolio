@@ -108,7 +108,7 @@ const Navbar = () => {
             Contact Me
           </a>
         </div>
-        <div className={`${navigatorVisibility ? "flex" : "hidden"}`}>
+        {/* <div className={`${navigatorVisibility ? "flex" : "hidden"}`}>
           <Button
             type="filled"
             icon={<MdOutlineFileDownload />}
@@ -116,7 +116,7 @@ const Navbar = () => {
           >
             Resume
           </Button>
-        </div>
+        </div> */}
       </div>
       <div
         className={`${burgerVisibility ? "flex" : "hidden"} text-black mt-3`}
