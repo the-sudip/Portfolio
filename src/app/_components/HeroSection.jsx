@@ -67,7 +67,7 @@ const HeroSection = () => {
         Building digital products, brands, and experience
       </p>
 
-      <div
+      {/* <div
         ref={descRef}
         className={`description flex flex-col items-center font-medium text-[15px] text-gray-700 mt-5 transition-all duratoin-500 ease-in-out transform ${
           descInView ? "scale-100 opacity-100" : "scale-98 opacity-20"
@@ -80,7 +80,7 @@ const HeroSection = () => {
         </p>
         <p>I specialize in UI/UX Design, Responsive Web Design</p>
         <p>and Visual Development</p>
-      </div>
+      </div> */}
     </div>
   );
 };
